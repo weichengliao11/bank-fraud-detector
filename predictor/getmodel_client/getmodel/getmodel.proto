@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+option go_package = "ipfs-fetch/grpc/grpc";
+option java_multiple_files = true;
+option java_package = "io.grpc";
+option java_outer_classname = "GetModelProto";
+
+package fetchHash;
+
+// The greeting service definition.
+service Greeter {
+  // Sends a greeting
+  rpc GetHash (HashRequest) returns (HashReply) {}
+}
+
+// The request message containing the user's name.
+message HashRequest {
+}
+
+// The response message containing the greetings
+message HashReply {
+  string hash = 1;
+}

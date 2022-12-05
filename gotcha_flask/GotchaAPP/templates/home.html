@@ -1,0 +1,82 @@
+{% extends 'base.html'%}
+
+{% block title %}
+Home Page
+{% endblock %}
+
+{% block content %}
+
+<h2>
+	Search by:
+</h2>
+
+<form action="{{ url_for('show_stats') }}" method="post">
+	<div class="input-group mb-3">
+		<div class="input-group-prepend">
+			<label class="input-group-text" for="inputGroupSelect01">Country</label>
+		</div>
+		<select class="custom-select" id="inputGroupSelect01" name="contp">
+			<option value=".*" selected>...</option>
+			<option value="104">中華民國</option>
+			<option value="38">西班牙</option>
+			<option value="46">日本</option>
+			<option value="75">韓國</option>
+			<option value="102">安哥拉</option>
+			<option value="52">巴西</option>
+		</select>
+	</div>
+
+	<div class="input-group mb-3">
+		<div class="input-group-prepend">
+			<label class="input-group-text" for="inputGroupSelect01">Coin</label>
+		</div>
+		<select class="custom-select" id="inputGroupSelect01" name="csmcu">
+			<option value=".*" selected>...</option>
+			<option value="62">台幣</option>
+			<option value="61">美元</option>
+			<option value="60">日幣</option>
+			<option value="71">盧布</option>
+			<option value="26">人民幣</option>
+			<option value="4">狗狗幣</option>
+		</select>
+	</div>
+
+	<div class="input-group mb-3">
+		<div class="input-group-prepend">
+			<label class="input-group-text" for="inputGroupSelect01">Store</label>
+		</div>
+		<select class="custom-select" id="inputGroupSelect01" name="mchno">
+			<option value=".*" selected>...</option>
+			<option value="54238.0">top1</option>
+			<option value="54828.0">top2</option>
+			<option value="55807.0">top3</option>
+		</select>
+	</div>
+	<div class="input-group-append">
+		<button class="btn btn-outline-secondary" type="submit" id="inputGroupFileAddon04">Show result</button>
+	</div>
+</form>
+
+<br>
+<br>
+
+<!-- <h2>
+	<small class="text-muted">or</small>
+	Upload your csv file and predict:
+</h2>
+
+<div class="input-group">
+	<form action="{{ url_for('predict')}}" method="post" enctype="multipart/form-data">
+		<div class="custom-file">
+			<input type="file" class="custom-file-input" id="customFile" name="fileupload">
+			<label class="custom-file-label" for="customFile">...</label>
+		</div>
+
+		<div class="input-group-append">
+			<button class="btn btn-outline-secondary" type="submit">Upload and
+				predict</button>
+		</div>
+	</form>
+</div> -->
+
+{% endblock %}

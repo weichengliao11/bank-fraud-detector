@@ -1,0 +1,25 @@
+version: "3.3"
+
+services:
+  predictor:
+    image: asia.gcr.io/ds-final-gotcha/vincentliao11/predictor:5.0
+    ports:
+      - "8000:8000"
+    labels:
+      kompose.service.type: LoadBalancer
+  
+  ipfs: 
+    image: asia.gcr.io/ds-final-gotcha/vnaticzhock/ds_final_ipfs:1.0
+    ports:
+      - "3000:3000"
+    labels:
+      kompose.service.type: LoadBalancer
+    depends_on:
+      - predictor
+  
+  frontend:
+    image: asia.gcr.io/ds-final-gotcha/vincentliao11/frontend:1.0
+    ports:
+      - "5000:5000"
+    labels:
+      kompose.service.type: LoadBalancer

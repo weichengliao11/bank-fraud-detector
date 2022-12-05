@@ -1,0 +1,110 @@
+{% extends 'base.html'%}
+
+{% block title %}
+Result
+{% endblock %}
+
+{% block content %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<div class="container">
+	<!-- <div class="row" style="justify-content: space-around;"> -->
+	<!-- <div class="col-sm-" style="padding-top:50px;; height:20vh; width:30vw">
+			<canvas id="myChart" aspectRatio="1">
+				<script>
+					const labels = [
+						'January',
+						'February',
+						'March',
+						'April',
+						'May',
+						'June',
+					];
+
+					const data = {
+						labels: labels,
+						datasets: [{
+							label: '成功偵測之盜刷筆數',
+							backgroundColor: 'rgb(7, 186, 32)',
+							borderColor: 'rgb(225, 247, 228)',
+							data: [0, 10, 5, 2, 20, 30, 45],
+						}]
+					};
+
+					const config = {
+						type: 'line',
+						data: data,
+						options: {}
+					};
+				</script>
+
+				<script>
+					const myChart = new Chart(
+						document.getElementById('myChart'),
+						config
+					);
+				</script>
+			</canvas>
+		</div>
+		<div class="col-sm-">
+			<canvas id="myChart1">
+				<script>
+
+					const data1 = {
+						labels: [
+							'新台幣',
+							'美元',
+							'人民幣'
+						],
+						datasets: [{
+							data: [50, 30, 20],
+							backgroundColor: [
+								'rgb(131, 252, 148)',
+								'rgb(121, 237, 237)',
+								'rgb(255, 61, 72)'
+							],
+							hoverOffset: 4
+						}]
+					};
+
+					const config1 = {
+						type: 'doughnut',
+						data: data1,
+					};
+				</script>
+
+				<script>
+					const myChart1 = new Chart(
+						document.getElementById('myChart1'),
+						config1
+					);
+				</script>
+			</canvas>
+		</div>
+	</div> -->
+
+	<div class="row">
+		<div class="container-fluid">
+			<table class="table table-hover table-dark">
+				<tr>
+					<th>Date</th>
+					<th>Cano</th>
+					<th>Amount</th>
+				</tr>
+
+				{% for case in cases %}
+
+				{% if case.fraud_label == "1" %}
+				<tr class="alert alert-danger" role="alert">
+					{% else %}
+				<tr class="alert alert-success" role="alert">
+					{% endif %}
+					<td>{{ case.time }}</td>
+					<td>{{ case.cano }}</td>
+					<td>{{ case.Amount }}</td>
+				</tr>
+				{% endfor %}
+			</table>
+		</div>
+	</div>
+</div>
+{% endblock %}
